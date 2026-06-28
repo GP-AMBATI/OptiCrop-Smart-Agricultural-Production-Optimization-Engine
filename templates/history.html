@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card shadow-sm border-0">
+  <div class="card-body p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h2 class="text-success">Prediction History</h2>
+        <p class="text-muted mb-0">Review and export your previous recommendations.</p>
+      </div>
+      <div><a href="{{ url_for('history') }}?format=csv" class="btn btn-success"><i class="fa-solid fa-download"></i> Export CSV</a></div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Date</th>
+            <th>Crop</th>
+            <th>Confidence</th>
+            <th>Temperature</th>
+            <th>Rainfall</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for record in predictions %}
+          <tr>
+            <td>{{ record.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>{{ record.predicted_crop.title() }}</td>
+            <td>{{ (record.confidence * 100)|round(2) }}%</td>
+            <td>{{ record.temperature }}°C</td>
+            <td>{{ record.rainfall }} mm</td>
+            <td><a href="{{ url_for('download') }}?prediction_id={{ record.id }}" class="btn btn-sm btn-outline-success">PDF</a></td>
+          </tr>
+          {% else %}
+          <tr><td colspan="6" class="text-center">No prediction history yet. Submit a crop request to begin.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

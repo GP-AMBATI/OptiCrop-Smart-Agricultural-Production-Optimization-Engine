@@ -1,0 +1,91 @@
+:root {
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --text: #212529;
+  --muted: #6c757d;
+  --success: #198754;
+  --surface-alt: #f1f3f5;
+}
+
+body.theme-dark {
+  --bg: #111827;
+  --surface: #1f2937;
+  --text: #f8fafc;
+  --muted: #9ca3af;
+  --surface-alt: #111827;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.navbar, .footer, .card, .hero-card, .forecast-card, .stat-card, .info-card {
+  background: var(--surface) !important;
+}
+
+.hero-card {
+  animation: fadeIn 1s ease both;
+}
+
+.forecast-card {
+  background: linear-gradient(145deg, rgba(25, 135, 84, 0.95), rgba(40, 167, 69, 0.9));
+  color: #fff;
+}
+
+.feature-box, .info-card {
+  background: var(--surface-alt);
+}
+
+footer {
+  background: #101828;
+}
+
+.btn-outline-success {
+  border-color: rgba(25, 135, 84, 0.75);
+}
+
+.bg-light {
+  background: rgba(248, 249, 250, 0.95) !important;
+}
+
+.card {
+  border: none;
+}
+
+.stat-card {
+  transition: transform 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+input, textarea, select {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 0.15rem rgba(25, 135, 84, 0.25);
+}
+
+footer p {
+  color: #cbd5e1;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.toast {
+  transform: translateY(20px);
+  animation: slideIn 0.4s ease forwards;
+}
+
+@keyframes slideIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
