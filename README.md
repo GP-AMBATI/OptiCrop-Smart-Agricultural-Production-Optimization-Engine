@@ -1,34 +1,34 @@
-# OptiCrop: Smart Agricultural Production Optimization Engine
+# OptiCrop Smart Agricultural Production Optimization Engine
 
-OptiCrop is a production-ready Flask application that recommends the most suitable crop for a given set of soil and climate conditions. It combines a trained machine learning model with a clean web interface and reporting workflow for farmers, researchers, and agricultural planners.
+OptiCrop is a Flask-based crop recommendation platform that helps farmers and agricultural planners select the most suitable crop based on soil and environmental features. The application combines a trained machine learning model with a modern web interface, prediction history, and downloadable reports.
 
 ## Features
 
-- Intelligent crop prediction from soil and weather parameters
-- Responsive web interface for form-based prediction
-- Prediction history with CSV export
+- Crop recommendation from soil and climate inputs
+- Responsive web interface for real-time predictions
+- Prediction history and CSV export
 - PDF report generation for recommendations
-- Dashboard with model comparison and recent predictions
+- Dashboard with model metrics and recent predictions
 - REST-style API endpoints for integration
 - SQLite-backed storage for predictions and reports
 
 ## Screenshots
 
-Add screenshots to the screenshots/ directory and reference them here once available.
+Screenshots can be added to the [screenshots](screenshots) directory and referenced here as the project evolves.
 
 ## Tech Stack
 
 - Backend: Python, Flask
 - Machine Learning: scikit-learn, pandas, NumPy, joblib
 - Database: SQLite, SQLAlchemy
-- Frontend: HTML, CSS, JavaScript, Bootstrap
+- Frontend: HTML, CSS, JavaScript
 - Deployment: Render, Gunicorn
 
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/OptiCrop-Smart-Agricultural-Production-Optimization-Engine.git
+   git clone https://github.com/OptiCrop-Smart-Agricultural-Production-Optimization-Engine.git
    cd OptiCrop-Smart-Agricultural-Production-Optimization-Engine
    ```
 2. Create and activate a virtual environment:
@@ -40,7 +40,7 @@ Add screenshots to the screenshots/ directory and reference them here once avail
    ```bash
    pip install -r requirements.txt
    ```
-4. Create a local environment file:
+4. Copy the environment template and update values if needed:
    ```bash
    copy .env.example .env
    ```
@@ -51,7 +51,7 @@ Add screenshots to the screenshots/ directory and reference them here once avail
 
 ## Dataset
 
-The project uses the crop recommendation dataset stored in [dataset/crop_recommendation.csv](dataset/crop_recommendation.csv).
+The project uses the crop recommendation dataset stored in [dataset/crop_recommendation.csv](dataset/crop_recommendation.csv). The application also includes trained model artifacts for immediate use.
 
 ## How to Run
 
@@ -80,6 +80,7 @@ dataset/
 notebooks/
 docs/
 reports/
+screenshots/
 models/
 ```
 
@@ -88,26 +89,28 @@ models/
 - GET /api/health — health check
 - GET /api/history — recent predictions
 - POST /api/predict — prediction endpoint
+- GET /history — web-based prediction history view
+- GET /download — PDF report download
 
 ## Model Information
 
-The model artifacts are stored as:
-- model.pkl
-- scaler.pkl
-- label_encoder.pkl
+The trained artifacts are stored as:
+- [model.pkl](model.pkl)
+- [scaler.pkl](scaler.pkl)
+- [label_encoder.pkl](label_encoder.pkl)
 
-If these files are missing, the app will train them automatically on first startup.
+If these files are missing, the application will regenerate them on startup.
 
 ## Deployment
 
-The repository includes deployment configuration for Render via [render.yaml](render.yaml) and [Procfile](Procfile).
+Deployment configuration is included for Render via [render.yaml](render.yaml) and [Procfile](Procfile).
 
 ## Future Scope
 
 - Multi-language interface support
-- Mobile app integration
-- Advanced weather-based forecasting
-- Farmer-specific recommendation insights
+- Mobile application integration
+- Weather-driven forecasting enhancements
+- Farmer-specific advisory insights
 
 ## License
 

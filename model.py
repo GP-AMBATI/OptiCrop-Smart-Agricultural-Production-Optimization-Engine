@@ -174,8 +174,6 @@ def clean_dataset(df: pd.DataFrame) -> pd.DataFrame:
     """Clean the dataset by removing duplicates and missing rows."""
     current_shape = df.shape
     df = df.drop_duplicates().dropna().reset_index(drop=True)
-    if df.shape != current_shape:
-        print(f"Cleaned dataset: {current_shape} -> {df.shape}")
     return df
 
 
@@ -264,7 +262,6 @@ def load_artifacts() -> Tuple[Any, StandardScaler, LabelEncoder]:
 def ensure_artifacts() -> None:
     """Generate model artifacts if they do not already exist."""
     if not MODEL_PATH.exists() or not SCALER_PATH.exists() or not ENCODER_PATH.exists():
-        print("Artifacts missing, training model...")
         train_and_save()
 
 
