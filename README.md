@@ -12,10 +12,6 @@ OptiCrop is a Flask-based crop recommendation platform that helps farmers and ag
 - REST-style API endpoints for integration
 - SQLite-backed storage for predictions and reports
 
-## Screenshots
-
-Screenshots can be added to the [screenshots](screenshots) directory and referenced here as the project evolves.
-
 ## Tech Stack
 
 - Backend: Python, Flask
